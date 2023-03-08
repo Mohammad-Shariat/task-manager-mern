@@ -3,6 +3,8 @@ const {
   getTasks,
   getTask,
   createTask,
+  deleteTask,
+  updateTask,
 } = require('../contollers/taskController');
 
 const router = express.Router();
@@ -17,13 +19,9 @@ router.get('/:id', getTask);
 router.post('/', createTask);
 
 // DELETE a task
-router.delete('/:id', (req, res) => {
-  res.json({ mssg: 'DELETE a task' });
-});
+router.delete('/:id', deleteTask);
 
 // UPDATE a task
-router.patch('/:id', (req, res) => {
-  res.json({ mssg: 'UPDATE a task' });
-});
+router.patch('/:id', updateTask);
 
 module.exports = router;
