@@ -14,7 +14,7 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: 'SET_TASK', payload: json });
+        dispatch({ type: 'SET_TASKS', payload: json });
       }
     };
 
