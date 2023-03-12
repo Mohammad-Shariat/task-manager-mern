@@ -56,14 +56,31 @@ header a {
   font-size: 0.9em;
   color: #555;
 }
-.task-details span {
+
+.task-details .button-container {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container span:nth-child(1) {
   cursor: pointer;
   background: #c91616;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 50%;
+  color: #fff;
+}
+.button-container span:nth-child(2) {
+  cursor: pointer;
+  background: #ebbd04;
+  padding: 5px;
+  border-radius: 50%;
   color: #fff;
 }
 

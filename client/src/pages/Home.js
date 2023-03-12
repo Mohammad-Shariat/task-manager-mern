@@ -19,7 +19,7 @@ const Home = () => {
     };
 
     fetchTasks();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='home'>

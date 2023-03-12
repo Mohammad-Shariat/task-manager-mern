@@ -1,5 +1,8 @@
 import { useTasksContext } from '../hooks/useTasksContext';
 
+// date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
 const TaskDetails = ({ task }) => {
   const { dispatch } = useTasksContext();
 
@@ -15,11 +18,22 @@ const TaskDetails = ({ task }) => {
     }
   };
 
+  const handleEdit = async () => {};
+
   return (
     <div className='task-details'>
       <h4>{task.task}</h4>
-      <p>{task.createdAt}</p>
-      <span onClick={handleClick}>Delete</span>
+      <p>
+        {formatDistanceToNow(new Date(task.createdAt), { addSuffix: true })}
+      </p>
+      <div className='button-container'>
+        <span className='material-symbols-outlined' onClick={handleClick}>
+          Delete
+        </span>
+        <span className='material-symbols-outlined' onClick={handleEdit}>
+          Edit
+        </span>
+      </div>
     </div>
   );
 };
