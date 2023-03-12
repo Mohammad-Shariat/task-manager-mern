@@ -28,12 +28,24 @@ const getTask = async (req, res) => {
 const createTask = async (req, res) => {
   const { task } = req.body;
 
+  let emptyField = '';
+
+  if (!task) {
+    emptyField = 'task';
+  }
+
+  if (emptyField.length > 0) {
+    return res
+      .status(400)
+      .json({ error: 'Please fill in the field', emptyField });
+  }
+
   // add doc to db
   try {
     const newTask = await Task.create({ task });
     res.status(200).json(newTask);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message, emptyField });
   }
 };
 // delete a task
